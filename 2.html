@@ -1,0 +1,43 @@
+
+<html>
+<head>
+    <title>Test No.2 Dumbways</title>
+</head>
+<body style = "background-color : grey;" , align="center">
+    <font color="white">
+        <br>        
+        <h2>Menampilkan Interval Tanggal Yang Berada Di Antara Dua Tanggal
+        </h2>
+        <marquee><font size="5" , color = "red">Vian Alfalah
+        </font></marquee>
+        <hr/>
+        <p>Tanggal Awal</p>
+        <input id="awal" type="text" value="" > <p>Contoh : "2019-11-01"</p>
+        <p>Tanggal Akhir</p>
+        <input id="akhir" type="text" value="" > <p>Contoh : "2019-11-05"</p>
+        <button onClick="betweenDays()">Tampilkan</button><br><br>
+        <textarea name="" id="output" cols="50" rows="15"></textarea>
+        </font>
+   
+</body>
+<script>
+
+function betweenDays()
+{
+var tgl_awal = new Date(document.getElementById('awal').value);
+var tgl_akhir = new Date(document.getElementById('akhir').value);
+var output = document.getElementById('output');
+output.value = '';
+
+while (tgl_awal<=tgl_akhir)
+  {
+    var bulan = tgl_awal.getMonth()+1;
+    if( bulan <= 9 ) { bulan = "0"+bulan; }
+    var hari = tgl_awal.getDate();
+    if( hari <= 9 ) { hari = "0"+hari; }
+    output.value += ("(" + tgl_awal.getFullYear() + "-" + bulan +"-"+hari+ ")"+ "\n");
+    tgl_awal.setDate(tgl_awal.getDate()+1)
+}
+}
+</script>
+</html>
